@@ -6,6 +6,6 @@ const goodEveningMsg = {
     to: momEmail,
     cc: jessEmail,
     subject: 'Good evening!',
-    text: `Hope you had a good day. This was sent from my bot :)`
+    text: 'Hope you had a good day. This was sent from my bot :)'
 }
 module.exports = goodEveningMsg;
