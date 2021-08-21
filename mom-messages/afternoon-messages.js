@@ -9,11 +9,11 @@ const axios = require('axios').default;
     .catch(error => console.error(error)); */
 
 
-const goodAfternoonMsg = {
+/* const goodAfternoonMsg = {
     from: jessEmail,
     to: jessEmail, //temporarily testing with my email
     cc: jessEmail,
     subject: 'Good Afternoon!',
     text: `Did you drink your water today? This was sent from my bot :) ${randomQuote}`
-}
+} */
 module.exports = goodAfternoonMsg;
