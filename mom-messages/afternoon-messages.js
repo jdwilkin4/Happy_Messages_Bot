@@ -4,9 +4,9 @@ const axios = require('axios').default;
 
 
 //needs work
-const randomQuote = axios.get('https://free-quotes-api.herokuapp.com/')
+/* const randomQuote = axios.get('https://free-quotes-api.herokuapp.com/')
     .then(response => console.log(response.data))
-    .catch(error => console.error(error));
+    .catch(error => console.error(error)); */
 
 
 const goodAfternoonMsg = {

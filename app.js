@@ -1,5 +1,5 @@
 const nodeMailer = require('nodemailer');
-//const nodeCron = require('node-cron');
+const nodeCron = require('node-cron');
 require('dotenv').config();
 const jessEmail = process.env.ADMIN_EMAIL;
 const jessPassword = process.env.ADMIN_PASSWORD;
@@ -21,22 +21,13 @@ let transporter = nodeMailer.createTransport({
     }
 });
 
-// functions for mom messages
-/* async function morningMomEmail() {
-    let info = await transporter.sendMail(goodMorningMsg)
-    console.log(`Message sent: ${info.messageId}`);
-}
-morningMomEmail().catch(console.error); */
+//testing every minute
+nodeCron.schedule('* * * * *', () => {
+    async function eveningMomEmail() {
+        let info = await transporter.sendMail(goodEveningMsg);
+        console.log(`Message sent:${info.messageId}`);
+    }
+    eveningMomEmail().catch(console.error);
+})
 
-async function afternoonMomEmail() {
-    let info = await transporter.sendMail(goodAfternoonMsg);
-    console.log(`Message sent: ${info.messageId}`);
-}
-afternoonMomEmail().catch(console.error);
-
-/* async function eveningMomEmail() {
-    let info = await transporter.sendMail(goodEveningMsg);
-    console.log(`Message sent:${info.messageId}`);
-}
-eveningMomEmail().catch(console.error); */
 
