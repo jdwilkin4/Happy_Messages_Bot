@@ -1,3 +1,4 @@
+require('dotenv').config();
 const momEmail = process.env.MOM_EMAIL;
 const jessEmail = process.env.ADMIN_EMAIL;
 

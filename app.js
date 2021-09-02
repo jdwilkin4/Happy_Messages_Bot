@@ -5,8 +5,8 @@ const jessEmail = process.env.ADMIN_EMAIL;
 const jessPassword = process.env.ADMIN_PASSWORD;
 
 // mom message imports
-const goodMorningMsg = require('./mom-messages/morning-messages');
-const goodAfternoonMsg = require('./mom-messages/afternoon-messages');
+//const goodMorningMsg = require('./mom-messages/morning-messages');
+//const goodAfternoonMsg = require('./mom-messages/afternoon-messages');
 const goodEveningMsg = require('./mom-messages/evening-messages');
 
 
