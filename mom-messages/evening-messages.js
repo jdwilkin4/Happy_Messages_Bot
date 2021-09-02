@@ -13,8 +13,10 @@ nodeFetch('https://type.fit/api/quotes')
         //console.log(data[randomNum])
         quote = data[randomNum].text
         author = data[randomNum].author
-        console.log(data[randomNum].text)
-        console.log(data[randomNum].author)
+        //console.log(data[randomNum].text)
+        //console.log(data[randomNum].author)
+        console.log(quote)
+        console.log(author)
     })
     .catch(err => console.error(err))
 
@@ -24,6 +26,12 @@ const goodEveningMsg = {
     to: momEmail,
     cc: jessEmail,
     subject: 'Good evening!',
-    text: `Hope you had a good day. This was sent from my bot :)\n ${quote} - ${author}`
+    //needs work
+    text: `
+    Hope you had a good day. 
+    This was sent from my bot :)\n
+    <h2>${quote}</h2>\n - 
+    <p>${author}</p>
+     `
 }
 module.exports = goodEveningMsg;
