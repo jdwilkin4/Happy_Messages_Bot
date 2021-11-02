@@ -1,17 +1,17 @@
 {
   "name": "happy_messages_bot",
   "version": "1.0.0",
-  "description": "This bot was created to send happy emails to friends and family at set times.",
+  "description": "This bot was created to send happy emails to my mom at set times.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jdwilkin4/Happy_Messages_Bot.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jessica Wilkins",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jdwilkin4/Happy_Messages_Bot/issues"
@@ -20,7 +20,6 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "node-cron": "^3.0.0",
-    "node-fetch": "^2.6.1",
     "nodemailer": "^6.6.2",
     "nodemon": "^2.0.12"
   }
