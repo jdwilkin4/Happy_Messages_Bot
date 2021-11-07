@@ -5,7 +5,7 @@ const momEmail = process.env.MOM_EMAIL;
 const jessEmail = process.env.ADMIN_EMAIL;
 const jessPassword = process.env.ADMIN_PASSWORD;
 const { morningMessage, drinkWater, afternoonMessage, birthdayMessage, eveningMessage } = require('./messages');
-const { christmasMessage, valentinesMessage, thanksgivingMessage, mothersDayMessage, newYearMessage } = require('./holiday-messages');
+const { christmasMessage, valentinesMessage, newYearMessage } = require('./holiday-messages');
 
 //object constructor for emails
 function EmailMessage(from, to, cc, subject, html) {
@@ -24,8 +24,6 @@ let sendEveningMsg = new EmailMessage(jessEmail, momEmail, jessEmail, 'Good Even
 let sendDrinkWater = new EmailMessage(jessEmail, momEmail, jessEmail, "Please Drink water", drinkWater);
 let sendChristmasMsg = new EmailMessage(jessEmail, momEmail, jessEmail, 'Merry Christmas', christmasMessage);
 let sendValentinesMsg = new EmailMessage(jessEmail, momEmail, jessEmail, 'Happy Valentines Day', valentinesMessage);
-let sendThanksgivingMsg = new EmailMessage(jessEmail, momEmail, jessEmail, 'Happy Thanksgiving', thanksgivingMessage);
-let sendMothersMsg = new EmailMessage(jessEmail, momEmail, jessEmail, 'Happy Mother\'s Day', mothersDayMessage);
 let sendNewYearMsg = new EmailMessage(jessEmail, momEmail, jessEmail, 'Happy New Year', newYearMessage);
 
 
@@ -45,7 +43,7 @@ transporter.verify((error) => {
   error ? console.log(`There was an error message: ${error}`) : console.log('Ready to send email')
 });
 
-//setup the cron schedule to deliver mail every day at 9am, noon and 6pm PST
+//cron schedule to deliver mail every day at 9am, noon and 6pm PST
 nodeCron.schedule('0 9 * * *', () => {
   async function morningMsg() {
     let info = await transporter.sendMail(sendMorningMsg)
@@ -80,8 +78,8 @@ nodeCron.schedule('0 8 20 May *', () => {
   momBirthday().catch(console.error);
 });
 
-//setup the cron schedule to deliver email remainder to drink water every 4 hours
-nodeCron.schedule('* */4 * * *', () => {
+// cron schedule to deliver email remainder to drink water at 1pm
+nodeCron.schedule('0 13 * * *', () => {
   async function drinkWaterMsg() {
     let info = await transporter.sendMail(sendDrinkWater)
     console.log(`Message send: ${info.messageId}`)
@@ -89,10 +87,8 @@ nodeCron.schedule('* */4 * * *', () => {
   drinkWaterMsg().catch(console.error);
 });
 
-//setup the cron schedule to deliver email for holidays 
-
-//TODO: work on holiday schedules 
-nodeCron.schedule('* * * * *', () => {
+//setup the cron schedule to deliver emails for christmas, valentines, and  New years  
+nodeCron.schedule('0 9 25 Dec *', () => {
   async function christmasMsg() {
     let info = await transporter.sendMail(sendChristmasMsg)
     console.log(`Message send: ${info.messageId}`)
@@ -100,7 +96,8 @@ nodeCron.schedule('* * * * *', () => {
   christmasMsg().catch(console.error);
 });
 
-nodeCron.schedule('* * * * *', () => {
+
+nodeCron.schedule('0 10 14 Feb *', () => {
   async function valentinesMsg() {
     let info = await transporter.sendMail(sendValentinesMsg)
     console.log(`Message send: ${info.messageId}`)
@@ -108,31 +105,13 @@ nodeCron.schedule('* * * * *', () => {
   valentinesMsg().catch(console.error);
 });
 
-nodeCron.schedule('* * * * *', () => {
-  async function thanksgivingMsg() {
-    let info = await transporter.sendMail(sendThanksgivingMsg)
-    console.log(`Message send: ${info.messageId}`)
-  }
-  thanksgivingMsg().catch(console.error);
-});
 
-nodeCron.schedule('* * * * *', () => {
-  async function mothersDayMsg() {
-    let info = await transporter.sendMail(sendMothersMsg)
-    console.log(`Message send: ${info.messageId}`)
-  }
-  mothersDayMsg().catch(console.error);
-});
-
-nodeCron.schedule('* * * * *', () => {
+nodeCron.schedule('0 0 1 Jan *', () => {
   async function newYearsMsg() {
     let info = await transporter.sendMail(sendNewYearMsg)
     console.log(`Message send: ${info.messageId}`)
   }
   newYearsMsg().catch(console.error);
 });
-
-
-
 
 

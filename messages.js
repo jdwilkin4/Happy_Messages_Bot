@@ -16,9 +16,8 @@ const eveningMessage = `
 <p>Hope your day went well. Make sure to get plenty of rest. And remember you are awesome.</p>
 `;
 
-const birthdayMessage = `
-<h1>Happy Birthday</h1>
-`;
+const birthdayMessage = `<h1>Happy Birthday</h1>`;
+
 
 module.exports = { morningMessage, drinkWater, afternoonMessage, birthdayMessage, eveningMessage }
 
