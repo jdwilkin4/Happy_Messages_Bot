@@ -10,7 +10,7 @@ The bot also sends out messages once a year on Christmas, Valentines Day and New
 
 
 ## How run the bot locally
-1. In your terminal, run `git clone https://github.com/github-username/Happy_Messages_Bot.git`. Replace github-username with your actual username.
+1. In your terminal, run `git clone https://github.com/jdwilkin4/Happy_Messages_Bot.git`. 
 2. In your terminal, under the project directory, run `npm install` to add the `node_modules` folder
 3. In your terminal, under the project directory, run `touch .env`. Store these variables inside the file with our own email address, password and mom's email.
 ```
