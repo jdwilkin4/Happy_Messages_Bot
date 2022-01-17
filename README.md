@@ -8,9 +8,11 @@ I have also created a message to remind my mom to drink water. That goes out eve
 Inside the `messages.js` and `holiday-messsages.js` file, I have created all of the variables for the messages.<br>
 The bot also sends out messages once a year on Christmas, Valentines Day and New Year's Day.
 
+## How to fork a repo
+https://docs.github.com/en/get-started/quickstart/fork-a-repo
 
 ## How run the bot locally
-1. In your terminal, run `git clone https://github.com/jdwilkin4/Happy_Messages_Bot.git`. 
+1. In your terminal, run `git clone https://github.com/YOUR-GITHUB-USERNAME/Happy_Messages_Bot.git`. 
 2. In your terminal, under the project directory, run `npm install` to add the `node_modules` folder
 3. In your terminal, under the project directory, run `touch .env`. Store these variables inside the file with our own email address, password and mom's email.
 ```
